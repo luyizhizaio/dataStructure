@@ -13,10 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\studyC">
+      <UniqueIdentifier>{44c476ce-c5c6-4079-8c68-a2be1d4eaf1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="test.c">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="c1.c">
+      <Filter>源文件\studyC</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
