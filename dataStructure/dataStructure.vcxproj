@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="linkList.c" />
     <ClCompile Include="List.c" />
+    <ClCompile Include="zhizhen.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="structure.h" />

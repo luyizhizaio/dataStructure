@@ -24,7 +24,7 @@ typedef struct {
 } Sqlist; //顺序表
 
 
-//初始化 *L表示指针  等价于c++里的 &L
+//初始化 L表示指针  等价于c++里的 &L
 Status InitList(Sqlist *L) {
 	(*L).elem = (ElemType *) malloc(LIST_INIT_SIZE * sizeof(ElemType));
 	if (!(*L).elem) exit(OVERFLOW);
@@ -86,7 +86,26 @@ Status listDelete(Sqlist *L, int i, ElemType *e) {
 	(*L).length--;//表长减1
 
 	return OK;
+} 
+
+//遍历操作
+Status ListTraverse(Sqlist L, void(*vi)(ElemType *)) {
+	/* 初始条件：顺序线性表L已存在 */     
+	/* 操作结果：依次对L的每个数据元素调用函数vi()。一旦vi()失败，则操作失败 */   
+	/*           vi()的形参加'&'，表明可通过调用vi()改变元素的值 */
+
+	ElemType *p;
+	int i;
+	p = L.elem;
+	for (i = 1; i <= L.length; i++)
+		vi(p++);
+	printf("\n");
+	return OK;
+
+
+
 }
+
 
 
 

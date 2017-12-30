@@ -16,10 +16,19 @@
     <Filter Include="源文件\ch2">
       <UniqueIdentifier>{70dc3e63-f74f-425d-ad98-577a3f9b6971}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\C">
+      <UniqueIdentifier>{8ce8799e-8ed0-4abe-9154-f24febd6c89f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="List.c">
       <Filter>源文件\ch2</Filter>
+    </ClCompile>
+    <ClCompile Include="linkList.c">
+      <Filter>源文件\ch2</Filter>
+    </ClCompile>
+    <ClCompile Include="zhizhen.c">
+      <Filter>源文件\C</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
