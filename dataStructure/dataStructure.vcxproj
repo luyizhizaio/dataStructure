@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="c1.c" />
-    <ClCompile Include="test.c" />
+    <ClCompile Include="List.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="structure.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
