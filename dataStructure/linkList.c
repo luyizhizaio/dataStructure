@@ -71,7 +71,8 @@ int  ListLength(LinkList L) {
 
 
 /*L为带头节点的单链表的头指针，当第i个元素存在时，其值赋予e并返回OK,否则返回ERROR*/
-void GetElem(LinkList L,int i ,ElemType *e) {
+
+Status GetElem(LinkList L,int i ,ElemType *e) {
 	int j = i; //计数器
 	LinkList p = L->next;
 	while (p&& j < i) {
@@ -179,6 +180,80 @@ Status ListDelte(LinkList L, int i, ElemType *e) {
 	free(q);
 	return OK;
 }
+
+
+Status ListTraverse(LinkList L, void(*vi)(ElemType)) {
+	/*vi的形参类型为ElemType，*/
+	/*初始条件：线性表L已存在*/
+	/*操作结果：依次对L的每个数据元素调用函数vi(),一旦vi失败，则操作失败*/
+	LinkList p = L->next;/*p指向第一个节点*/
+	while (p) {
+		vi(p->data);
+		p = p->next;
+
+	}
+	printf("\n");
+	return OK;
+
+}
+
+
+void CreateList(LinkList *L, int n) {
+	/*逆位序（头插法）输入n个元素的值，建立带表头结构的单链线性表L*/
+
+	int i;
+	LinkList p;
+	*L = (LinkList)malloc(sizeof(struct LNode));
+	(*L)->next = NULL; /*先建立一个带头节点的单链表*/
+	printf("请输入%d个数据\n", n);
+
+	for (i = n; i > 0; --i) {
+		p = (LinkList)malloc(sizeof(struct LNode));/*生成新节点*/
+		scanf("%d", &p->data);//输入元素值
+		p->next = (*L)->next;
+		(*L)->next = p;
+	}
+}
+
+
+void CreateList2(LinkList *L, int n) {
+	/*正位序（尾插法）输入n个元素的值，建立带头节点的单链线性表*/
+	int i;
+	LinkList p, q;
+	*L = (LinkList)malloc(sizeof(struct LNode));/*生成头结点*/
+	(*L)->next = NULL;
+	q = *L;
+	printf("请输入%d个数据\n", n);
+	for (i = 1; i <= n; i++) {
+		p = (LinkList)malloc(sizeof(struct LNode));
+		scanf("%d", &p->data);
+		q->next = p;
+		q = q->next;
+	}
+	p->next = NULL;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

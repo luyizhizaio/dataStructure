@@ -30,6 +30,9 @@
     <ClCompile Include="zhizhen.c">
       <Filter>源文件\C</Filter>
     </ClCompile>
+    <ClCompile Include="linklist_demo.c">
+      <Filter>源文件\ch2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="structure.h">

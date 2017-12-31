@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="linkList.c" />
+    <ClCompile Include="linklist_demo.c" />
     <ClCompile Include="List.c" />
     <ClCompile Include="zhizhen.c" />
   </ItemGroup>
