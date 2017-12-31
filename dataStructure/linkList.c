@@ -84,3 +84,162 @@ void GetElem(LinkList L,int i ,ElemType *e) {
 	return OK;
 }
 
+
+int LocateElem(LinkList L, ElemType e, Status(*compare)(ElemType, ElemType)) {
+/*初始条件：线性表L已经存在，compare()是数据元素判断函数（满足为1，否则为0）
+	操作结果： 返回L中第1个与e满足关系compare()的数据元素的为序。
+	若这样的数据元素不存在，则返回0
+*/
+	int i = 0;
+	LinkList  p = L->next;
+	while (p) {
+		i++;
+		if (compare(p->data, e))
+			return i;
+		p = p->next;
+	}
+	return 0;
+}
+
+Status PriorElem(LinkList L, ElemType cur_e, ElemType *pre_e) {
+	/*返回cur_e的前驱*/
+
+	LinkList q, p = L->next;/*p指向第一个节点*/
+	while (p->next) {
+		q = p->next;
+		if (q->data == cur_e) {
+			*pre_e = p->data; //p就是要找的元素
+			return OK;
+		}
+		p = q; /*p后移*/
+	}
+	return INFEASIBLE;
+
+}
+
+Status NextElem(LinkList L, ElemType cur_e, ElemType * next_e) {
+	/*操作结果：若cur_e是L的数据元素，且不是最后一个，则用next_e 返回他的后继
+	*/
+	LinkList p = L->next;/*p指向第一个节点*/
+	while (p->next) {
+
+		if (p->data == cur_e) {
+			*next_e = p->next->data;
+			return OK;
+		}
+		p = p->next;
+
+
+	}
+	return INFEASIBLE;
+
+}
+
+
+
+
+
+Status ListInsert(LinkList L, int i, ElemType e) {
+
+	/*在带头节点的单链表L中第i个位置之前插入元素e*/
+
+	int j = 0;
+	LinkList p = L,s;
+	while (p&& j < i - 1) {/*寻找第i-1个节点*/
+		p = p->next;
+		j++;
+
+	}
+	if (!p || j > i - 1)/*i小于1，或者大于表长*/
+		return ERROR;
+
+	s = (LinkList)malloc(sizeof(struct LNode));/*生产新节点*/
+	s->data = e;
+	s->next = p->next;
+	p->next = s;
+	return OK;
+
+}
+
+Status ListDelte(LinkList L, int i, ElemType *e) {
+	/*在带头节点的单链表L中，删除第i个元素，并由e返回其值*/
+
+	int j = 0;
+	LinkList p = L, q;
+	while (p->next && j < i - 1) { /*寻找第i个节点，并令p指向其前趋*/
+		p = p->next;
+		j++;
+	}
+	if (!p->next || j > i - 1) /*删除位置不合理*/
+		return ERROR;
+
+	q = p->next;
+	p->next = q->next;
+	*e = q->data;
+	free(q);
+	return OK;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
