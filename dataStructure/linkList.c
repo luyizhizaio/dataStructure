@@ -1,4 +1,3 @@
-
 #include "structure.h"
 
 //定义结构体
@@ -8,14 +7,14 @@ struct LNode {
 
 };
 
-typedef struct LNode  *LinkList; //定义LinkList
+typedef struct LNode  *LinkList; //定义LinkList指针指向LNode
 
 //LinkList L; //L为单链表的头指针
 
 
-//构造空的线性表,参数 *L是个头指针
+//构造空的线性表,参数 L是个头指针的指针
 Status InitList(LinkList *L) {
-	*L = (LinkList)malloc(sizeof(struct LNode)); //产生头节点并使L指向此头节点，*L头节点的指针
+	*L = (LinkList)malloc(sizeof(struct LNode)); //产生头节点并使*L指向头节点，*L头节点的指针
 	if (!*L) {
 		exit(OVERFLOW);
 	}
@@ -162,7 +161,7 @@ Status ListInsert(LinkList L, int i, ElemType e) {
 
 }
 
-Status ListDelte(LinkList L, int i, ElemType *e) {
+Status ListDelete(LinkList L, int i, ElemType *e) {
 	/*在带头节点的单链表L中，删除第i个元素，并由e返回其值*/
 
 	int j = 0;
@@ -216,7 +215,7 @@ void CreateList(LinkList *L, int n) {
 }
 
 
-void CreateList2(LinkList *L, int n) {
+void CreateList2(LinkList *L, int n) { /*L是指针变量*/
 	/*正位序（尾插法）输入n个元素的值，建立带头节点的单链线性表*/
 	int i;
 	LinkList p, q;
@@ -234,6 +233,17 @@ void CreateList2(LinkList *L, int n) {
 }
 
 
+void main() {
+	int n = 5;
+	LinkList La, Lb, Lc;
+	CreateList2(&La, n);
+
+	int i = ListLength(La);
+
+	printf("长度为%d个数据", i);
+
+
+}
 
 
 

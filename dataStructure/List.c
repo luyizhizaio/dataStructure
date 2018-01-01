@@ -1,5 +1,3 @@
-
-
 #include "structure.h"
 
 #define LISTSIZE 100
