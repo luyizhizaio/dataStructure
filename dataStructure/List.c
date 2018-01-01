@@ -23,7 +23,7 @@ typedef struct {
 
 
 //初始化 L表示指针  等价于c++里的 &L
-Status InitList(Sqlist *L) {
+Status InitList_sq(Sqlist *L) {
 	(*L).elem = (ElemType *) malloc(LIST_INIT_SIZE * sizeof(ElemType));
 	if (!(*L).elem) exit(OVERFLOW);
 	(*L).length = 0;
@@ -33,7 +33,7 @@ Status InitList(Sqlist *L) {
 }
 
 //查找，时间性能O(n)
-int LocateElem(Sqlist L, ElemType x) {
+int LocateElem_sq(Sqlist L, ElemType x) {
 	int i=0;
 	while (i <= L.length-1 && L.elem[i] != x) i++;
 
@@ -43,7 +43,7 @@ int LocateElem(Sqlist L, ElemType x) {
 }
 
 //插入，在顺序表L的第i个元素之前插入元素
-Status ListInsert(Sqlist *L, int i, ElemType e) {
+Status ListInsert_sq(Sqlist *L, int i, ElemType e) {
 
 	ElemType *newbase, *q, *p; //存储空间基址
 	
@@ -70,7 +70,7 @@ Status ListInsert(Sqlist *L, int i, ElemType e) {
 }
 
 //删除操作
-Status listDelete(Sqlist *L, int i, ElemType *e) {
+Status listDelete_sq(Sqlist *L, int i, ElemType *e) {
 	/*初始条件： 顺序表存在 ，1<= i <= ListLength(L)
 	操作结果： 删除L的第i个数据元素并用e返回其值，L长度减1
 	*/
@@ -87,7 +87,7 @@ Status listDelete(Sqlist *L, int i, ElemType *e) {
 } 
 
 //遍历操作
-Status ListTraverse(Sqlist L, void(*vi)(ElemType *)) {
+Status ListTraverse_sq(Sqlist L, void(*vi)(ElemType *)) {
 	/* 初始条件：顺序线性表L已存在 */     
 	/* 操作结果：依次对L的每个数据元素调用函数vi()。一旦vi()失败，则操作失败 */   
 	/*           vi()的形参加'&'，表明可通过调用vi()改变元素的值 */
@@ -107,7 +107,7 @@ Status ListTraverse(Sqlist L, void(*vi)(ElemType *)) {
 
 
 
-main() {
+/*main() {
 	Sqlist sl;
 	Status i;
 	 i = InitList(&sl); //&sl取一个变量的地址
@@ -117,7 +117,7 @@ main() {
 	 if(i == 1)//创建成功
 		 printf("end");
 			   //for()
-}
+}*/
 
 
 
